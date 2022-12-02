@@ -4,7 +4,7 @@
 Install Cell_segment
 ------------------------------------
 ```
-$git clone https://github.com/
+$git clone https://github.com/sumoii/Cell_segment.git
 ```
 Dependencies
 ------------------------------------
