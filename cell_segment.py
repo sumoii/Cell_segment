@@ -56,8 +56,8 @@ if __name__=="__main__":
 	gene_num = spot_adata.n_vars
 	X_matrix = spot_adata.X
 	img = read_spot_Mcounts(spot_adata)
-	value_adata = trans_porb_bin2spot_v4(map_adata,spot_adata,"cell_bin",n_lables-1)
-	U = read_spot_UnaryEnergy_v2(value_adata,n_lables,spot_num)
+	value_adata = trans_porb_bin2spot(map_adata,spot_adata,"cell_bin",n_lables-1)
+	U = read_spot_UnaryEnergy(value_adata,n_lables,spot_num)
 	MAP = run_densecrf(U,img,n_lables,W,H,w1,w2)
 	spot_df["new_cell_ID"] = MAP
 	spot_df = find_new_cell_bin(spot_df,mrf_adata,x_start,x_end,y_start,y_end)
@@ -69,8 +69,8 @@ if __name__=="__main__":
 		new_bin_adata,spot_df = delete_null_bin(new_bin_adata,spot_df,"new_cell_bin",bin_size,threshold,1)
 		spot_adata.obs = spot_df
 		map_adata = run_tangram(new_bin_adata,sc_adata,feature)
-		value_adata = trans_porb_bin2spot_v4(map_adata,spot_adata,"new_cell_bin",n_lables-1)
-		U = read_spot_UnaryEnergy_v2(value_adata,n_lables,spot_num)
+		value_adata = trans_porb_bin2spot(map_adata,spot_adata,"new_cell_bin",n_lables-1)
+		U = read_spot_UnaryEnergy(value_adata,n_lables,spot_num)
 		MAP = run_densecrf(U,img,n_lables,W,H,w1,w2)
 		spot_df["new_cell_ID"] = MAP
 		spot_df = find_new_cell_bin(spot_df,mrf_adata,x_start,x_end,y_start,y_end)
