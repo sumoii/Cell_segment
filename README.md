@@ -9,7 +9,7 @@ $git clone https://github.com/
 Dependencies
 ------------------------------------
 1.python3.6+  
-2.gcc 4.4+
+2.gcc 4.4+  
 3.numpy,pandas,anndata,tangram,densecrf
 
 Usage
